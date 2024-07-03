@@ -1,0 +1,22 @@
+class Solution {
+public:
+    vector <int> nCr(int row){
+        vector <int> result;
+        result.push_back(1);
+        long long res = 1;
+        for(int i=1; i<row; i++){
+            res = res*(row-i);
+            res = res/i;
+            result.push_back(res);
+        }
+        return result;
+    }
+
+    vector<vector<int>> generate(int numRows) {
+        vector< vector <int>> answer;
+        for(int i=1; i<=numRows; i++){
+            answer.push_back(nCr(i));
+        }
+        return answer;
+    }
+};
