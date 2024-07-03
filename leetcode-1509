@@ -1,0 +1,21 @@
+class Solution {
+public:
+    int minDifference(vector<int>& nums) {
+        int mini = INT_MAX;
+        sort(nums.begin(), nums.end());
+        if(nums.size() <= 3){
+            return 0;
+        }
+
+        // since, there will only be 4 cases
+        // a) change first 3 elements into favourable elements
+        // b) change first 2 elements and last 1 element into favourable elements
+        // c) change first 1 element and last 2 elements into favourable elements
+        // d) change last 3 elements into favourable elements
+        
+        for(int i=1; i <= 4; i++){
+            mini = min(mini, abs( nums[nums.size()-i] - nums[4-i]));
+        }
+        return mini;
+    }
+};
