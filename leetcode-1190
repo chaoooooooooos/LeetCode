@@ -1,0 +1,21 @@
+class Solution {
+public:
+    stack <int> st;
+    string reverseParentheses(string s) {
+        string result = "";
+        for(int i=0; i<s.length(); i++){
+            if(s[i] == '('){
+                st.push(result.length());
+            }
+            else if (s[i] == ')'){
+                int l = st.top();
+                st.pop();
+                reverse(result.begin()+l, result.end());
+            }
+            else{ // there is a character
+                result += s[i];
+            }
+        }
+        return result;
+    }
+};
