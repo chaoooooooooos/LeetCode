@@ -1,0 +1,20 @@
+class Solution {
+public:
+    string triangleType(vector<int>& nums) {
+        int x=0;
+        if(nums[x]+ nums[x+1] > nums[x+2] && nums[x+2] + nums[x] > nums[x+1] && nums[x+1] + nums[x+2] > nums[x]){
+            sort(nums.begin(), nums.end());
+            int i=0;
+            if(nums[i]==nums[i+1] && nums[i+1] == nums[i+2]){
+                return "equilateral";
+            }
+            else if(nums[i]==nums[i+1] || nums[i+1] == nums[i+2]){
+                return "isosceles";
+            }
+            else if(nums[i]!=nums[i+1] && nums[i+1] != nums[i+2]){
+                return "scalene";
+            }
+        }
+        return "none";
+    }
+};
